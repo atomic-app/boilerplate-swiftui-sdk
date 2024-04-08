@@ -11,9 +11,12 @@ import AtomicSDK
 @main
 struct SwiftUIBoilerplateApp: App {
     
-    init() {
-        AACSession.initialise(withEnvironmentId: AtomicConfiguration.environmentId,
-                              apiKey: AtomicConfiguration.apiKey)
+    init() {        
+        
+        AACSession.login(withEnvironmentId: AtomicConfiguration.environmentId,
+                         apiKey: AtomicConfiguration.apiKey,
+                         sessionDelegate: AtomicSessionDelegate(),
+                         apiBaseUrl: URL(string: AtomicConfiguration.apiHost))
     }
     
     var body: some Scene {
