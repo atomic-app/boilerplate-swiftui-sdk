@@ -26,7 +26,7 @@ enum AtomicSettings {
 struct SwiftUI_boilerplateApp: App {
     
     init() {
-        AACSession.login(withEnvironmentId: AtomicSettings.environmentId, apiKey: AtomicSettings.apiKey, sessionDelegate: Delegate(), apiBaseUrl: URL(string: AtomicSettings.apiBaseUrl))
+        AACSession.login(withEnvironmentId: AtomicSettings.environmentId, apiKey: AtomicSettings.apiKey, sessionDelegate: TheSessionDelegate(), apiBaseUrl: URL(string: AtomicSettings.apiBaseUrl))
     }
     
     var body: some Scene {
@@ -36,7 +36,7 @@ struct SwiftUI_boilerplateApp: App {
     }
 }
 
-struct Delegate: AACSessionDelegate {
+struct TheSessionDelegate: AACSessionDelegate {
     func cardSessionDidRequestAuthenticationToken() async -> String? {
         // Return the authentication token (JWT).
         ""
