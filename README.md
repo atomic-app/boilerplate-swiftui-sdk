@@ -23,11 +23,13 @@ The app requires your Atomic Workbench settings before it can run. Add the follo
 
 Return a valid JSON Web Token (JWT) from `TheSessionDelegate.cardSessionDidRequestAuthenticationToken()`. See [SDK Authentication](https://documentation.atomic.io/sdks/auth-SDK) for JWT generation details.
 
-## Main branch
+## Branches
+
+### Main branch
 
 The main branch is the minimal setup: it logs into the Atomic SwiftUI SDK with `AtomicSettings` and renders a default `StreamContainer`.
 
-## Full variants
+### Full variants
 
 The [`full-variants`](https://github.com/atomic-app/boilerplate-swiftui-sdk/tree/full-variants) branch expands the boilerplate into a picker of focused container examples:
 
@@ -35,3 +37,14 @@ The [`full-variants`](https://github.com/atomic-app/boilerplate-swiftui-sdk/tree
 - Single card view: shows `SingleCardContainer` inside a scroll page, with a secondary page and a bell-triggered sheet.
 - Horizontal container: shows `HorizontalContainer` inside the same host layout, using a fixed card width.
 - Fullscreen modal: shows the fullscreen `.modalContainer(...)` modifier attached to simple page content.
+
+### Runtime variables
+
+The [`runtime-variables`](https://github.com/atomic-app/boilerplate-swiftui-sdk/tree/runtime-variables) branch demonstrates how to resolve runtime variables while rendering a `StreamContainer`. It adds a `ContainerConfiguration` in `ContentView.swift` that resolves an `amount` runtime variable with the value `500`.
+
+To test the runtime-variable example:
+
+- In [Atomic Workbench](https://workbench.atomic.io/), open Action Flows, then open an action flow.
+- In the Variables section, create a variable named `amount`, and ensure "Allow update at runtime" is turned on.
+- Add this variable to a card.
+- Publish the card and run the app from the `runtime-variables` branch.
