@@ -1,7 +1,7 @@
 # SwiftUI Boilerplate App
 This is a boilerplate app that can be forked to get you started with the Atomic SwiftUI SDK.
 
-The code is based around the [Atomic SwiftUI SDK documentation](https://documentation.atomic.io/sdks/ios-swiftui) and designed to get you up and running as quickly as possible, not necessarily as best practice.
+The code is based on the [Atomic SwiftUI SDK documentation](https://documentation.atomic.io/sdks/ios-swiftui) and designed to get you up and running as quickly as possible, not as an example of best practices.
 
 This boilerplate is provided for demonstration and onboarding purposes only. It is not production-ready, and we do not recommend submitting it, or any modified version of it, to the App Store or using it in a production environment without your own review, testing, and hardening. You are responsible for any changes you make and for how you use this project. Atomic is not liable for any losses, damages, or issues that arise from using this boilerplate or any modifications derived from it.
 
@@ -24,13 +24,13 @@ The app requires your Atomic Workbench settings before it can run. Add the follo
 Return a valid JSON Web Token (JWT) from `TheSessionDelegate.cardSessionDidRequestAuthenticationToken()`. See [SDK Authentication](https://documentation.atomic.io/sdks/auth-SDK) for JWT generation details.
 
 ## Runtime variables
-This branch demonstrates how runtime variables are resolved. A runtime variable `amount` has been set up in `ContentView.swift`, which has a value of 500.
+This branch demonstrates how runtime variables are resolved. The `amount` runtime variable is set in `ContentView.swift` with a value of `500`.
 
 To test this feature:
 
-- In [Atomic Workbench](https://workbench.atomic.io/), in "Action Flows", open an action flow.
-- In the "Variables" section, create a variable called "amount", and make sure "Allow update at runtime" is turned on.
+- In [Atomic Workbench](https://workbench.atomic.io/), open Action Flows, then open an action flow.
+- In the Variables section, create a variable named `amount`, and ensure "Allow update at runtime" is turned on.
 - Add this variable to a card.
-- Publish the card and run this app.
+- Publish the card and run the app.
 
 ![Setting up runtime variables](runtime-variables.png)
