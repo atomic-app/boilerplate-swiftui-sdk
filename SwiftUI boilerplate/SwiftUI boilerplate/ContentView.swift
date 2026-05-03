@@ -9,8 +9,20 @@ import SwiftUI
 import AtomicSwiftUISDK
 
 struct ContentView: View {
+    var config: ContainerConfiguration {
+        var cfg = ContainerConfiguration(onEvent: nil) { cardsToResolve in
+            let resolvedCards = cardsToResolve.map{ card in
+                var newCard = card
+                newCard.resolveRuntimeVariable(name: "amount", value: "500")
+                return newCard
+            }
+            return resolvedCards
+        }
+        cfg.ignoresSafeAreaEdges = .bottom
+        return cfg
+    }
+    
     var body: some View {
-        // Simplest presentation. Display a container with default configurations.
-        StreamContainer(containerId: AtomicSettings.containerId)
+        StreamContainer(containerId: AtomicSettings.containerId, configuration: config)
     }
 }
