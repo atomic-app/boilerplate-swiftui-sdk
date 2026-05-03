@@ -22,3 +22,14 @@ The app requires your Atomic Workbench settings before it can run. Add the follo
 - `containerId`: listed in Stream containers.
 
 Return a valid JSON Web Token (JWT) from `TheSessionDelegate.cardSessionDidRequestAuthenticationToken()`. See [SDK Authentication](https://documentation.atomic.io/sdks/auth-SDK) for JWT generation details.
+
+## Container variants
+
+The app starts with a simple variant picker in `ContentView.swift`. Each option opens a small, focused SwiftUI example that uses the same `AtomicSettings.containerId` and the SDK's default configuration.
+
+- `StreamContainerVariantView.swift`: shows a navigation-based `StreamContainer` example, plus a bell button that presents the stream container in a sheet.
+- `SingleCardVariantView.swift`: shows `SingleCardContainer` inside a scroll view, with a secondary page and a bell-triggered sheet.
+- `HorizontalContainerVariantView.swift`: shows `HorizontalContainer` inside the same host layout, using a fixed card width of `350`.
+- `ModalContainerVariantView.swift`: shows the fullscreen `.modalContainer(...)` modifier attached to simple page content.
+
+These examples intentionally avoid sample-app-only settings screens, custom configuration controls, and extra visual styling so the boilerplate stays focused on how to present each SDK container.
