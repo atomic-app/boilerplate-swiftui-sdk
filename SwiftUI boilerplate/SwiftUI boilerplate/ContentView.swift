@@ -9,8 +9,31 @@ import SwiftUI
 import AtomicSwiftUISDK
 
 struct ContentView: View {
+    
+    var config: ContainerConfiguration {
+        var cfg = ContainerConfiguration()
+        cfg.enabledUIElements.remove(.cardListHeader)
+        // Setting it to .top enables the non-opaque scrolling effect. See its documentation for more details.
+        cfg.ignoresSafeAreaEdges = [.top]
+        return cfg
+    }
+    
     var body: some View {
-        // Simplest presentation. Display a container with default configurations.
-        StreamContainer(containerId: AtomicSettings.containerId)
+        NavigationStack {
+            NavigationLink {
+                StreamContainer(containerId: AtomicSettings.containerId, configuration: config)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Notifications").font(.headline)
+                        }
+                    }
+                }
+            } label: {
+                Image(systemName: "list.dash.header.rectangle")
+                Text("Stream container")
+            }
+        }
     }
 }
